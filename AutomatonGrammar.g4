@@ -1,4 +1,12 @@
-grammar AutomatonGrammar; // Definimos uma gramática chamada Hello
-r : 'hello' ID ; // encontramos a palavra chave ‘hello’ seguida de um identificador
-ID : [a-z]+ ; // encontramos identificadores de letra minúscula
+grammar AutomatonGrammar; 
+s : 'A'A | 'Q'Q | 'T'T | 'I'I | 'F'F;
+A : '={'alf'}';
+alf: (LETRA',' | NUM',')* | LETRA | NUM;
+LETRA: 'a'..'z';
+NUM: '0' .. '1';
+
+Q: '={'estados'}';
+estados: 'q'NUM ',' estados | 'q'NUM
+
+
 WS : [ \t\r\n]+ -> skip;
