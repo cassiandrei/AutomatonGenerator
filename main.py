@@ -50,7 +50,7 @@ def removeremetidos(lista):
 
 def main():
     arquivo = FileStream("Automato.txt")
-    fita = input("Digite a fita de entrada:")
+    fita = input("Digite a fita de definicao:")
     lexer = AutomatonGrammarLexer(arquivo)
     stream = CommonTokenStream(lexer)
     parser = AutomatonGrammarParser(stream)
@@ -60,17 +60,15 @@ def main():
     walker = ParseTreeWalker()
     walker.walk(definicao, tree)
 
-    entrada.transicoes = entrada.transicoes[0].replace(",(", ";(").split(";")
-    for cont in range(len(entrada.transicoes)):
-        entrada.transicoes[cont] = entrada.transicoes[cont].replace("(", "")
-        entrada.transicoes[cont] = entrada.transicoes[cont].replace(")", "")
-        entrada.transicoes[cont] = entrada.transicoes[cont].replace("=", ",")
-        entrada.transicoes[cont] = entrada.transicoes[cont].split(",")
+    definicao.transicoes = definicao.transicoes[0].replace(",(", ";(").split(";")
+    for cont in range(len(definicao.transicoes)):
+        definicao.transicoes[cont] = definicao.transicoes[cont].replace("(", "")
+        definicao.transicoes[cont] = definicao.transicoes[cont].replace(")", "")
+        definicao.transicoes[cont] = definicao.transicoes[cont].replace("=", ",")
+        definicao.transicoes[cont] = definicao.transicoes[cont].split(",")
 
-    if Automato(definicao, fita):
-        print("Entrada reconhecida pelo automato")
-    else:
-        print("Entrada nao reconhecida pelo automato")
+    auto = Automato(definicao, fita)
+    auto.valida()
 
 if __name__ == '__main__':
     main()
