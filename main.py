@@ -7,7 +7,7 @@ from antlr.AutomatonGrammarParser import AutomatonGrammarParser
 from antlr.AutomatonGrammarListener import AutomatonGrammarListener
 
 
-class Automato(AutomatonGrammarListener):
+class Listener(AutomatonGrammarListener):
     alfabeto = []
     estados = []
     transicoes = []
@@ -36,7 +36,7 @@ class Automato(AutomatonGrammarListener):
 
 
     def visitErrorNode(self, node):
-        print("Erro na entrada!!!!")
+        print("Erro na definição do automato!!!!")
         exit(1);
 
 
@@ -47,22 +47,17 @@ def removeremetidos(lista):
     return lista
 
 
-def main(argv):
-    input = FileStream(argv[1])
-    lexer = AutomatonGrammarLexer(input)
+def main():
+    arquivo = FileStream("Automato.txt")
+    fita = input("Digite a fita de entrada:")
+    lexer = AutomatonGrammarLexer(arquivo)
     stream = CommonTokenStream(lexer)
     parser = AutomatonGrammarParser(stream)
     tree = parser.s()
 
-    entrada = Automato()
+    definicao = Listener()
     walker = ParseTreeWalker()
-    walker.walk(entrada, tree)
-
-    print("Alfabeto: ")
-    print(entrada.alfabeto)
-
-    print("Estados: ")
-    print(entrada.estados)
+    walker.walk(definicao, tree)
 
     entrada.transicoes = entrada.transicoes[0].replace(",(", ";(").split(";")
     for cont in range(len(entrada.transicoes)):
@@ -70,13 +65,11 @@ def main(argv):
         entrada.transicoes[cont] = entrada.transicoes[cont].replace(")", "")
         entrada.transicoes[cont] = entrada.transicoes[cont].replace("=", ",")
         entrada.transicoes[cont] = entrada.transicoes[cont].split(",")
-    print("Transicoes: ")
-    print(entrada.transicoes)
 
-    print("Inicio: ")
-    print(entrada.inicio)
+    if Automato(definicao, fita):
+        print("Entrada reconhecida pelo automato")
+    else:
+        print("Entrada nao reconhecida pelo automato")
 
-    print("Finais: ")
-    print(entrada.final)
 if __name__ == '__main__':
-    main(sys.argv)
+    main()
