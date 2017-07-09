@@ -12,5 +12,5 @@ est : 'q'num;
 transicoes : '={'trans'}';
 trans : '('est','letra')='est',' trans | '('est','letra')='est;
 inicio : '='est;
-final : '={'est'}';
+final : '={'estado'}';
 WS : [ \t\r\n]+ -> skip;
