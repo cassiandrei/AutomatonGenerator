@@ -19,7 +19,6 @@ class Automato:
             self.estados.append(novoestado)
 
     def getEstado(self, nome):
-        print(len(self.estados))
         for estado in self.estados:
             if estado.nome == nome:
                 return estado
@@ -27,6 +26,8 @@ class Automato:
 
     def geraFilhos(self):
         for estado in self.estados:
+            print(estado.nome)
+            print(len(estado.filhos))
             for trans in self.definicao.transicoes:
                 if trans[0] == estado.nome:
                     estado.addFilho(self.getEstado(trans[2]))
