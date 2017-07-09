@@ -5,6 +5,7 @@ from antlr4 import *
 from antlr.AutomatonGrammarLexer import AutomatonGrammarLexer
 from antlr.AutomatonGrammarParser import AutomatonGrammarParser
 from antlr.AutomatonGrammarListener import AutomatonGrammarListener
+from automato import Automato
 
 
 class Listener(AutomatonGrammarListener):
