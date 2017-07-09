@@ -1,19 +1,19 @@
 grammar AutomatonGrammar; 
-s : 'A' A | 'Q' Q | 'T' T | 'I' I | 'F' F ;
-A : '={' alf '}';
+s : 'A' alfabeto| 'Q' estados| 'T' transicoes | 'I' inicio | 'F' final ;
+alfabeto : '={' alf '}';
 alf : (LETRA',' | NUM',')* | LETRA | NUM;
 LETRA : 'a'..'z';
 NUM : '0' .. '1';
 
-Q : '={'estados'}';
-estados :  (EST',')+ | EST;
+estados : '={'estado'}';
+estado :  (EST',')+ | EST;
 EST : 'q'NUM;
 
-T : '{'trans'}';
+transicoes : '{'trans'}';
 trans : '('EST','LETRA')='EST',' | '('EST','LETRA')='EST;
 
-I : EST;
+inicio : EST;
 
-F : '{'EST'}';
+final : '{'EST'}';
 
 WS : [ \t\r\n]+ -> skip;
