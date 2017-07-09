@@ -2,9 +2,9 @@ import sys
 
 from antlr4 import *
 
-from AutomatonGrammarLexer import AutomatonGrammarLexer
-from AutomatonGrammarParser import AutomatonGrammarParser
-from AutomatonGrammarListener import AutomatonGrammarListener
+from antlr.AutomatonGrammarLexer import AutomatonGrammarLexer
+from antlr.AutomatonGrammarParser import AutomatonGrammarParser
+from antlr.AutomatonGrammarListener import AutomatonGrammarListener
 
 
 class Automato(AutomatonGrammarListener):
