@@ -35,6 +35,24 @@ class AutomatonGrammarListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by AutomatonGrammarParser#letra.
+    def enterLetra(self, ctx:AutomatonGrammarParser.LetraContext):
+        pass
+
+    # Exit a parse tree produced by AutomatonGrammarParser#letra.
+    def exitLetra(self, ctx:AutomatonGrammarParser.LetraContext):
+        pass
+
+
+    # Enter a parse tree produced by AutomatonGrammarParser#num.
+    def enterNum(self, ctx:AutomatonGrammarParser.NumContext):
+        pass
+
+    # Exit a parse tree produced by AutomatonGrammarParser#num.
+    def exitNum(self, ctx:AutomatonGrammarParser.NumContext):
+        pass
+
+
     # Enter a parse tree produced by AutomatonGrammarParser#estados.
     def enterEstados(self, ctx:AutomatonGrammarParser.EstadosContext):
         pass
@@ -50,6 +68,15 @@ class AutomatonGrammarListener(ParseTreeListener):
 
     # Exit a parse tree produced by AutomatonGrammarParser#estado.
     def exitEstado(self, ctx:AutomatonGrammarParser.EstadoContext):
+        pass
+
+
+    # Enter a parse tree produced by AutomatonGrammarParser#est.
+    def enterEst(self, ctx:AutomatonGrammarParser.EstContext):
+        pass
+
+    # Exit a parse tree produced by AutomatonGrammarParser#est.
+    def exitEst(self, ctx:AutomatonGrammarParser.EstContext):
         pass
 
 
