@@ -29,6 +29,12 @@ class Automato(AutomatonGrammarListener):
         exit(1);
 
 
+def removeremetidos(lista):
+    for i in lista:
+        if i in lista:
+            lista.remove(i)
+    return lista
+
 
 def main(argv):
     input = FileStream(argv[1])
@@ -47,6 +53,12 @@ def main(argv):
     print("Estados: ")
     print(entrada.estados)
 
+    entrada.transicoes = entrada.transicoes[0].replace(",(", ";(").split(";")
+    for cont in range(len(entrada.transicoes)):
+        entrada.transicoes[cont] = entrada.transicoes[cont].replace("(","")
+        entrada.transicoes[cont] = entrada.transicoes[cont].replace(")", "")
+        entrada.transicoes[cont] = entrada.transicoes[cont].replace("=", ",")
+        entrada.transicoes[cont] = entrada.transicoes[cont].split(",")
     print("Transicoes: ")
     print(entrada.transicoes)
 

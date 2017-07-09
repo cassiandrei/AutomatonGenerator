@@ -35,7 +35,7 @@ def serializedATN():
         buf.write("\r\2\2QR\5\20\t\2RS\7\n\2\2ST\5\24\13\2T]\3\2\2\2UV\7")
         buf.write("\f\2\2VW\5\20\t\2WX\7\n\2\2XY\5\b\5\2YZ\7\r\2\2Z[\5\20")
         buf.write("\t\2[]\3\2\2\2\\L\3\2\2\2\\U\3\2\2\2]\25\3\2\2\2^_\7\16")
-        buf.write("\2\2_`\5\20\t\2`\27\3\2\2\2ab\7\b\2\2bc\5\20\t\2cd\7\t")
+        buf.write("\2\2_`\5\20\t\2`\27\3\2\2\2ab\7\b\2\2bc\5\16\b\2cd\7\t")
         buf.write("\2\2d\31\3\2\2\2\5\64C\\")
         return buf.getvalue()
 
@@ -708,8 +708,8 @@ class AutomatonGrammarParser ( Parser ):
             super().__init__(parent, invokingState)
             self.parser = parser
 
-        def est(self):
-            return self.getTypedRuleContext(AutomatonGrammarParser.EstContext,0)
+        def estado(self):
+            return self.getTypedRuleContext(AutomatonGrammarParser.EstadoContext,0)
 
 
         def getRuleIndex(self):
@@ -735,7 +735,7 @@ class AutomatonGrammarParser ( Parser ):
             self.state = 95
             self.match(AutomatonGrammarParser.T__5)
             self.state = 96
-            self.est()
+            self.estado()
             self.state = 97
             self.match(AutomatonGrammarParser.T__6)
         except RecognitionException as re:
