@@ -7,7 +7,6 @@ from antlr.AutomatonGrammarParser import AutomatonGrammarParser
 from antlr.AutomatonGrammarListener import AutomatonGrammarListener
 from automato import Automato
 
-
 class Listener(AutomatonGrammarListener):
     alfabeto = []
     estados = []
@@ -35,11 +34,9 @@ class Listener(AutomatonGrammarListener):
         self.final = ctx.estado().getText().split(",")
         pass
 
-
     def visitErrorNode(self, node):
         print("Erro na definição do automato!!!!")
-        exit(1);
-
+        exit(1)
 
 def removeremetidos(lista):
     for i in lista:
@@ -67,6 +64,17 @@ def main():
         definicao.transicoes[cont] = definicao.transicoes[cont].replace("=", ",")
         definicao.transicoes[cont] = definicao.transicoes[cont].split(",")
 
+
+    print("Alfabeto: ")
+    print(definicao.alfabeto)
+    print("Estados: ")
+    print(definicao.estados)
+    print("Transicoes: ")
+    print(definicao.transicoes)
+    print("Estado inicial: ")
+    print(definicao.inicio)
+    print("Estados Finais: ")
+    print(definicao.final)
     auto = Automato(definicao, fita)
     if auto.valida():
         print("Entrada RECONHECIDA")
