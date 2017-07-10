@@ -30,7 +30,7 @@ class Automato:
             passou = False
             token = self.fita[0]
             if token not in self.definicao.alfabeto:
-                print("TOKEN invalido ou fora do alfabeto")
+                print("TOKEN :"+token+" invalido ou fora do alfabeto")
                 return False
             if len(self.fita) == 1:
                 self.fita = ""
