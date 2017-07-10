@@ -68,7 +68,10 @@ def main():
         definicao.transicoes[cont] = definicao.transicoes[cont].split(",")
 
     auto = Automato(definicao, fita)
-    auto.valida()
+    if auto.valida():
+        print("Entrada RECONHECIDA")
+    else:
+        print("Entrada NAO RECONHECIDA")
 
 if __name__ == '__main__':
     main()
